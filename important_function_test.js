@@ -2,21 +2,22 @@ const { isObject } = require("util");
 
 Feature('Important function');
 
-// Scenario('Use of Grab_title', async  (I) => {
-//   I.amOnPage('https://www.seleniumeasy.com/test');
-//I.click('//*[@id="at-cv-lightbox-button-holder"]/a[2]');
-  
-//   let title = await I.grabTitle();
-//   I.say(title);
-//   //checkig the value from grabTitle is actually equals from the seeTitleEquals
-//   I.seeTitleEquals(title);
-//   I.scrollPageToBottom();
-//   I.wait(3);
-//   I.scrollPageToTop();
-//   I.wait(3);
-//   I.scrollTo('//footer[@class="footer"]//h4[.="Popular Posts"]');
-//   I.wait(3); 
-// });
+Scenario('Use of Grab_title', async  (I) => {
+  I.amOnPage('https://www.seleniumeasy.com/test');
+  I.click('//*[@id="at-cv-lightbox-button-holder"]/a[2]');
+  // use of grab title
+  let title = await I.grabTitle();
+  I.say(title);
+  //checkig the value from grabTitle is actually equals from the seeTitleEquals
+  I.seeTitleEquals(title);
+  //use of scroll functions and wait function
+  I.scrollPageToBottom();
+  I.wait(3);
+  I.scrollPageToTop();
+  I.wait(3);
+  I.scrollTo('//footer[@class="footer"]//h4[.="Popular Posts"]');
+  I.wait(3); 
+});
 
 //  Scenario('Use of Grab_textfrom', async  (I) => {
 //      I.amOnPage('https://www.seleniumeasy.com/test/');
