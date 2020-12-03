@@ -19,12 +19,18 @@ Scenario('Use of Grab_title', async  (I) => {
   I.wait(3); 
 });
 
-//  Scenario('Use of Grab_textfrom', async  (I) => {
-//      I.amOnPage('https://www.seleniumeasy.com/test/');
-//      I.click('//*[@id="at-cv-lightbox-button-holder"]/a[2]');
-//      let post = await I.grabTextFrom('//footer[@class="footer"]//h4[.="Popular Posts"]');
-//      I.say(post);  
-//    });
+ Scenario('Use of Grab_textfrom', async  (I) => {
+     I.amOnPage('https://www.seleniumeasy.com/test/');
+     I.click('//*[@id="at-cv-lightbox-button-holder"]/a[2]');
+     //Grab Text from any elements
+     let post = await I.grabTextFrom('//footer[@class="footer"]//h4[.="Popular Posts"]');
+     I.say(post);
+     //Grab current page URL
+     I.click('//ul[@id="treemenu"]/li/ul/li[2]/a[@href="#"]');
+    I.click('//li/ul/li[2]/ul//a[@href="./bootstrap-date-picker-demo.html"]');
+     let url = await I.grabCurrentUrl();
+    console.log(`Current URL is [${url}]`);  
+   });
 
 // Scenario('Use of Modal', async  (I) => {
 //     I.amOnPage('https://www.seleniumeasy.com/test/');
@@ -37,21 +43,22 @@ Scenario('Use of Grab_title', async  (I) => {
 //     });
 Scenario('Use of Date picker',async (I)=>{
     I.amOnPage('https://www.seleniumeasy.com/test/bootstrap-date-picker-demo.html');
-    //I.click('//*[@id="at-cv-lightbox-button-holder"]/a[2]');
+    //Write down a date and keyboard operation
     I.click('//*[@id="sandbox-container1"]/div/input');
     I.fillField('//*[@id="sandbox-container1"]/div/input','20/9/2020');
     I.pressKey('Enter');
     I.wait(4);
     I.clearField('//*[@id="sandbox-container1"]/div/input');
     I.refreshPage();
+    //Choose a date selected by Xpath
     I.click('//*[@id="sandbox-container1"]/div/input');
     I.click('//div[3]/div[1]/table/tbody/tr[5]/td[5]');
     I.clearField('//*[@id="sandbox-container1"]/div/input');
+    //Choose a date by today option
     I.click('//*[@id="sandbox-container1"]/div/input');
     I.click('//div[@class="datepicker-days"]/table[@class="table-condensed"]//th[@class="today"]');
     // let logs = await I.grabBrowserLogs();
     // console.log(JSON.stringify(logs))
-    let url = await I.grabCurrentUrl();
-    console.log(`Current URL is [${url}]`);
+    
 
 });

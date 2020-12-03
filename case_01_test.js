@@ -15,3 +15,6 @@ I.click('//*[@id="at-cv-lightbox-button-holder"]/a[2]');
   I.scrollTo('//footer[@class="footer"]//h4[.="Popular Posts"]');
   I.wait(3); 
 }).tag('@case');
+// Run commands: 
+// without steps: npx codeceptjs run --grep "@case" 
+// with steps: npx codeceptjs run --grep "@case" --steps
